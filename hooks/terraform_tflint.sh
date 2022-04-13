@@ -13,8 +13,6 @@ readonly SCRIPT_DIR="$(dirname "$(realpath "${BASH_SOURCE[0]}")")"
 function main {
   common::initialize "$SCRIPT_DIR"
   common::parse_cmdline "$@"
-  printenv
-  exit 1
   # Support for setting PATH to repo root.
   # shellcheck disable=SC2178 # It's the simplest syntax for that case
   ARGS=${ARGS[*]/__GIT_WORKING_DIR__/$(pwd)\/}
@@ -56,6 +54,9 @@ function per_dir_hook_unique_part {
     common::colorify "yellow" "TFLint in $dir_path/:"
 
     # shellcheck disable=SC2068 # hook fails when quoting is used ("$arg[@]")
+    echo tflint ${args[@]}
+    exit 1
+
     tflint ${args[@]}
   }
 
