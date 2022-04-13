@@ -55,6 +55,7 @@ function per_dir_hook_unique_part {
     common::colorify "yellow" "TFLint in $dir_path/:"
 
     # shellcheck disable=SC2068 # hook fails when quoting is used ("$arg[@]")
+    echo "CONFIG_FILE $CONFIG_FILE"
     echo tflint ${args[@]}
     echo tflint "${args[@]}"
     exit 1
