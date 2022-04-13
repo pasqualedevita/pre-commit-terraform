@@ -16,6 +16,7 @@ function main {
   # Support for setting PATH to repo root.
   # shellcheck disable=SC2178 # It's the simplest syntax for that case
   ARGS=${ARGS[*]/__GIT_WORKING_DIR__/$(pwd)\/}
+
   # shellcheck disable=SC2128 # It's the simplest syntax for that case
 
   # Run `tflint --init` for check that plugins installed.
@@ -55,6 +56,7 @@ function per_dir_hook_unique_part {
 
     # shellcheck disable=SC2068 # hook fails when quoting is used ("$arg[@]")
     echo tflint ${args[@]}
+    echo tflint "${args[@]}"
     exit 1
 
     tflint ${args[@]}
