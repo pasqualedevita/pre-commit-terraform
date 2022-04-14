@@ -55,7 +55,10 @@ function per_dir_hook_unique_part {
     common::colorify "yellow" "TFLint in $dir_path/:"
 
     echo "CONFIG_FILE $CONFIG_FILE ${!CONFIG_FILE}"
-    myargs=(${args[@]})
+    myargs="${args[@]}"
+
+    echo $myargs
+    exit 1
     echo "${myargs[@]}"
     echo tflint ${args[@]}
     echo tflint "${args[@]}"
