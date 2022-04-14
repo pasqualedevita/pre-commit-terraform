@@ -36,7 +36,7 @@ function common::parse_cmdline {
   for argv; do
     if [[ "$argv" =~ .*'$'.* ]]; then
           echo $argv
-          echo eval "$argv"
+          echo $(eval "$argv")
     fi
 
     case $argv in
