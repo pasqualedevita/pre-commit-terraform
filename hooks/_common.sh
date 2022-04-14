@@ -37,7 +37,8 @@ function common::parse_cmdline {
     if [[ "$argv" =~ .*'$'.* ]]; then
           echo $argv
           tmp=${argv#*$\{}
-          echo $tmp
+          env_var_name=${tmp%_\}}
+          echo "${!env_var_name}"
     fi
 
     case $argv in
