@@ -32,10 +32,13 @@ function common::parse_cmdline {
   local argv
   argv=$(getopt -o a:,h: --long args:,hook-config: -- "$@") || return
   eval "set -- $argv"
-  echo "$argv"
-  exit 1
 
   for argv; do
+    if [[ "$argv" =~ .*'$'.* ]]; then
+          echo $argv
+          echo eval "$argv"
+    fi
+
     case $argv in
       -a | --args)
         shift
