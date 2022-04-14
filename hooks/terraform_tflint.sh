@@ -58,6 +58,8 @@ function per_dir_hook_unique_part {
     myargs="${args[@]}"
 
     echo $myargs
+    read -r -a $myargs2 <<< "$myargs"
+    echo "${myargs2[@]}"
     exit 1
     echo "${myargs[@]}"
     echo tflint ${args[@]}
